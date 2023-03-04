@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using MyApiWebCore.Data;
+using MyApiWebCore.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +13,15 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(option => option.AddDefaultPolicy(policy => 
     policy.AllowCredentials().AllowAnyHeader().AllowAnyMethod()));
+
+builder.Services.AddDbContext<ProductStoreContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("ProductStore"));
+});
+builder.Services.AddAutoMapper(typeof(Program));
+    
+// life cycle DI: Addsingleton(), AddTransient(), AddScoped()
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
