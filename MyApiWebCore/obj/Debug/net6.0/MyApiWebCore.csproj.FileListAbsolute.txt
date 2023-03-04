@@ -321,3 +321,9 @@ C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\runtimes\win\lib\net6.0\
 C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\AutoMapper.dll
 C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

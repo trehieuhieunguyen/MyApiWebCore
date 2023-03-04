@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyApiWebCore.Data
 {
-    public class ProductStoreContext : DbContext
+    public class ProductStoreContext : IdentityDbContext<ApplicationUser>
     {
         public ProductStoreContext(DbContextOptions<ProductStoreContext> options) : base(options) { }
 

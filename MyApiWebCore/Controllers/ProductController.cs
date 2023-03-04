@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyApiWebCore.Models;
 using MyApiWebCore.Repositories;
@@ -37,6 +38,7 @@ namespace MyApiWebCore.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddProduct(ProductModel model)
         {
             try
@@ -65,6 +67,7 @@ namespace MyApiWebCore.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             
