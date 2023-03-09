@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MyApiWebCore.Data;
 
 namespace MyApiWebCore.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Roles = UserRoles.Admin)]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

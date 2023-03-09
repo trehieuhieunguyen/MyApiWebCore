@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyApiWebCore.Data;
 using MyApiWebCore.Models;
 using MyApiWebCore.Repositories;
 
@@ -8,6 +9,7 @@ namespace MyApiWebCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = UserRoles.Admin)]
     public class ProductController : ControllerBase
     {
         private IProductRepository _productRepository;
@@ -38,7 +40,6 @@ namespace MyApiWebCore.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> AddProduct(ProductModel model)
         {
             try
@@ -67,7 +68,6 @@ namespace MyApiWebCore.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             

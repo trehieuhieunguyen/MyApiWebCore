@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyApiWebCore.Models;
 using MyApiWebCore.Repositories;
@@ -29,7 +30,7 @@ namespace MyApiWebCore.Controllers
                 return Unauthorized();
             }
         }
-
+        
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn(SignInModel model)
         {

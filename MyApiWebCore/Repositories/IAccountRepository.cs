@@ -7,5 +7,6 @@ namespace MyApiWebCore.Repositories
     {
         public Task<IdentityResult> SignUpAsync(SignUpModel model);
         public Task<string> SignInAsync(SignInModel model);
+
     }
 }

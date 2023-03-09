@@ -327,3 +327,6 @@ C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.AspNetCore.Cry
 C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Scrutor.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\GitForApp\MyApiWebCore\MyApiWebCore\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
