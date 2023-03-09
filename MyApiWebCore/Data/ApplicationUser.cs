@@ -7,7 +7,7 @@ namespace MyApiWebCore.Data
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
 
-
+        public ICollection<Order> Orders { get; set; }
 
     }
 }
