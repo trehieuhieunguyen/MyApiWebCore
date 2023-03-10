@@ -45,12 +45,13 @@ builder.Services.AddAutoMapper(typeof(Program));
 // life cycle DI: Addsingleton(), AddTransient(), AddScoped()
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 // Add Identity User
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ProductStoreContext>().AddDefaultTokenProviders();
 
-//Add Authentication
+//Add Authentication and JWTBearer
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

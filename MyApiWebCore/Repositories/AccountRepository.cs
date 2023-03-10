@@ -37,6 +37,7 @@ namespace MyApiWebCore.Repositories
             List<Claim> authenClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, model.Email), 
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())    
             };
            

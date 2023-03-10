@@ -9,6 +9,8 @@ namespace MyApiWebCore.Helpers
         public ApplicationMapper()
         {
             CreateMap<Product, ProductModel>().ReverseMap();
+            CreateMap<Order, OrderModel>().ReverseMap();
+            CreateMap<OrderDetail,OrderItemModel>().ReverseMap();   
         }
     }
 }
