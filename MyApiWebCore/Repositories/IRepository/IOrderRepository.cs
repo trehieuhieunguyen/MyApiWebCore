@@ -1,7 +1,7 @@
 ﻿using MyApiWebCore.Data;
 using MyApiWebCore.Models;
 
-namespace MyApiWebCore.Repositories
+namespace MyApiWebCore.Repositories.IRepository
 {
     public interface IOrderRepository
     {

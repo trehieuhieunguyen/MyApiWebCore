@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyApiWebCore.Data;
 using MyApiWebCore.Models;
-using MyApiWebCore.Repositories;
+using MyApiWebCore.Repositories.IRepository;
 using System.Data;
 
 namespace MyApiWebCore.Controllers
@@ -13,18 +13,18 @@ namespace MyApiWebCore.Controllers
     [Authorize(Roles = UserRoles.Admin)]
     public class OrderItemController : ControllerBase
     {
-        private IOrderItemRepository orderRepository;
+        private IOrderItemRepository orderItemRepository;
 
-        public OrderItemController(IOrderItemRepository orderRepository)
+        public OrderItemController(IOrderItemRepository orderItemRepository)
         {
-            this.orderRepository = orderRepository;
+            this.orderItemRepository = orderItemRepository;
         }
         [HttpGet]
         public async Task<IActionResult> GetAllOrderItem()
         {
             try
             {
-                return Ok(await orderRepository.GetAllOrderDetailAsync());
+                return Ok(await orderItemRepository.GetAllOrderDetailAsync());
             }
             catch
             {
@@ -36,8 +36,8 @@ namespace MyApiWebCore.Controllers
         {
             try
             {
-                var newOrderItem = await orderRepository.AddOrderItemsAsyn(orderItemModel);
-                var ordersItem = await orderRepository.GetOrderDetailAsyn(newOrderItem);
+                var newOrderItem = await orderItemRepository.AddOrderItemsAsyn(orderItemModel);
+                var ordersItem = await orderItemRepository.GetOrderDetailAsyn(newOrderItem);
                 return ordersItem == null ? NotFound() : Ok(ordersItem);
             }
             catch

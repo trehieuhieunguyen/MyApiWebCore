@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using MyApiWebCore.Data;
 using MyApiWebCore.Models;
+using MyApiWebCore.Repositories.IRepository;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -73,11 +74,12 @@ namespace MyApiWebCore.Repositories
                 
             };
             var result = await userManager.CreateAsync(newUser, model.Password);
+            //Create Role for IdentityRole in db
             if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
             if (!await roleManager.RoleExistsAsync(UserRoles.User))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
-
+            //Create Role for User
             if (await roleManager.RoleExistsAsync(UserRoles.Admin))
             {
                 await userManager.AddToRoleAsync(newUser, UserRoles.Admin);

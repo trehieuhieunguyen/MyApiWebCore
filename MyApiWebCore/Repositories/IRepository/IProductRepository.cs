@@ -1,7 +1,7 @@
 ﻿using MyApiWebCore.Data;
 using MyApiWebCore.Models;
 
-namespace MyApiWebCore.Repositories
+namespace MyApiWebCore.Repositories.IRepository
 {
     public interface IProductRepository
     {
@@ -14,5 +14,7 @@ namespace MyApiWebCore.Repositories
         public Task UpdateProductAsync(int id, ProductModel model);
 
         public Task DeleteProductAsync(int id);
+
+        
     }
 }

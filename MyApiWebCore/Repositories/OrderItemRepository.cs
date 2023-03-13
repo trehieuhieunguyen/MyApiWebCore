@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyApiWebCore.Data;
 using MyApiWebCore.Models;
+using MyApiWebCore.Repositories.IRepository;
 
 namespace MyApiWebCore.Repositories
 {

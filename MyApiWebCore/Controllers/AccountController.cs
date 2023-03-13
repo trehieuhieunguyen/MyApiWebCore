@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyApiWebCore.Models;
-using MyApiWebCore.Repositories;
+using MyApiWebCore.Repositories.IRepository;
 
 namespace MyApiWebCore.Controllers
 {

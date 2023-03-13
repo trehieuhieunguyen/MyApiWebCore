@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyApiWebCore.Data;
 using MyApiWebCore.Repositories;
+using MyApiWebCore.Repositories.IRepository;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
@@ -47,6 +48,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<ITransactionHistoryRepositrory, TransactionHistoryRepository>();
 // Add Identity User
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ProductStoreContext>().AddDefaultTokenProviders();

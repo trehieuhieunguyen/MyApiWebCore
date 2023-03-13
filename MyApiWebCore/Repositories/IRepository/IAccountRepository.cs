@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using MyApiWebCore.Models;
 
-namespace MyApiWebCore.Repositories
+namespace MyApiWebCore.Repositories.IRepository
 {
     public interface IAccountRepository
     {
