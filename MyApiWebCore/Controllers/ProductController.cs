@@ -35,8 +35,15 @@ namespace MyApiWebCore.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
-            var product =await _productRepository.GetProductAsync(id);
-            return product==null ? NotFound() : Ok(product);
+            try
+            {
+                var product = await _productRepository.GetProductAsync(id);
+                return product == null ? NotFound() : Ok(product);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPost]
@@ -56,12 +63,12 @@ namespace MyApiWebCore.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id,ProductModel model)
         {
-            if (id == model.Id)
+            try
             {
-                 await _productRepository.UpdateProductAsync(id, model);
-                return Ok();
+               await _productRepository.UpdateProductAsync(id, model);
+               return Ok();
             }
-            else
+            catch
             {
                 return BadRequest();
             }
@@ -70,9 +77,15 @@ namespace MyApiWebCore.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            
+            try
+            {
                 await _productRepository.DeleteProductAsync(id);
                 return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
             
         }
     }

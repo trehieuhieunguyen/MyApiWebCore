@@ -28,6 +28,7 @@ namespace MyApiWebCore.Repositories
             //Create ordermodel to add order first in db 
             OrderModel orderModel = new OrderModel();
             orderModel.UserId = userManager.Users.First().Id;
+            orderModel.CreatedAt = DateTime.Now;
             var IdOrder = await orderRepository.AddOrderAsync(orderModel);
             orderModel.Total = 0;
             //Caculate total of bill and add orderitem of order
@@ -37,6 +38,7 @@ namespace MyApiWebCore.Repositories
                 newOrderDetail = orderDetails[i];
                 newOrderDetail.OrderId = IdOrder;
                 orderModel.Total += newOrderDetail.UnitPrice * newOrderDetail.Quantity;
+                newOrderDetail.CreatedAt = DateTime.Now;
                 context.OrderDetail!.Add(mapper.Map<OrderDetail>(newOrderDetail));
             }
             //**Get order to update (not using id above to update)
@@ -44,6 +46,8 @@ namespace MyApiWebCore.Repositories
             orderUpdate.Total = orderModel.Total;
             context.Update<Order>(mapper.Map<Order>(orderUpdate));
             await context.SaveChangesAsync();
+            //UpdateInventory
+            await orderRepository.UpdateInventory(orderUpdate);
             var orders = context.Order!.Where(u => u.Id == orderUpdate.Id)
                 .Select(o => new
                 {
@@ -60,6 +64,7 @@ namespace MyApiWebCore.Repositories
                     }).ToList()
                 }
                 ).ToList();
+            
             return orders;
         }
     }

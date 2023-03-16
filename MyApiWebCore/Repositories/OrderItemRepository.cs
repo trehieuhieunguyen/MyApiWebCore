@@ -19,6 +19,7 @@ namespace MyApiWebCore.Repositories
         public async Task<int> AddOrderItemsAsyn(OrderItemModel orderItemModel)
         {
             var orderDetail = mapper.Map<OrderDetail>(orderItemModel);
+            orderDetail.CreatedAt = DateTime.Now;
             context.OrderDetail!.Add(orderDetail); 
             await context.SaveChangesAsync();
             return orderDetail.OrderId;
@@ -51,6 +52,7 @@ namespace MyApiWebCore.Repositories
             if(id == orderItemModel.Id)
             {
                 var orderItem = mapper.Map<OrderDetail>(orderItemModel);
+                orderItem.UpdatedAt = DateTime.Now;
                 context.OrderDetail!.Update(orderItem);
                 await context.SaveChangesAsync();
             }

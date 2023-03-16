@@ -14,5 +14,7 @@ namespace MyApiWebCore.Repositories.IRepository
         public Task UpdateOrderAsync(int id, OrderModel order);
 
         public Task DeleteOrderAsync(int id);
+
+        public Task UpdateInventory(Order order);
     }
 }

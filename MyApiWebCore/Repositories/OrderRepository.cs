@@ -19,14 +19,20 @@ namespace MyApiWebCore.Repositories
         public async Task<int> AddOrderAsync(OrderModel orderModel)
         {
             var order = mapper.Map<Order>(orderModel);
+            order.CreatedAt = DateTime.Now;
             context.Order!.Add(order);
             await context.SaveChangesAsync();
             return order.Id;
         }
 
-        public Task DeleteOrderAsync(int id)
+        public async Task DeleteOrderAsync(int id)
         {
-            throw new NotImplementedException();
+            var order = context.Order!.FirstOrDefault(x => x.Id == id);
+            if (order != null)
+            {
+                context.Order!.Remove(order);
+                await context.SaveChangesAsync();
+            }
         }
 
         public async Task<List<OrderModel>> GetAllOrderAsync()
@@ -41,9 +47,27 @@ namespace MyApiWebCore.Repositories
             return mapper.Map<OrderModel>(order);
         }
 
-        public Task UpdateOrderAsync(int id, OrderModel order)
+        public async Task UpdateOrderAsync(int id, OrderModel order)
         {
-            throw new NotImplementedException();
+            if(order.Id == id)
+            {
+                var orderUpdate = mapper.Map<Order>(order);
+                orderUpdate.UpdatedAt = DateTime.Now;
+                context.Order!.Update(orderUpdate);
+                await context.SaveChangesAsync();
+            }
+        }
+        public async Task UpdateInventory(Order order)
+        {
+            foreach (var item in order.orderDetails)
+            {
+                var product = context.Products!.FirstOrDefault(p => p.Id == item.ProductId);
+                if (product != null)
+                {
+                    product.Quantity -= item.Quantity;
+                }
+            }
+            await context.SaveChangesAsync();
         }
     }
 }

@@ -9,5 +9,8 @@ namespace MyApiWebCore.Models
         public double UnitPrice { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
     }
 }

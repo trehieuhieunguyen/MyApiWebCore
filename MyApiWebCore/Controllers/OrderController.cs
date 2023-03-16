@@ -43,5 +43,31 @@ namespace MyApiWebCore.Controllers
                 return BadRequest();
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> DeleteOrderAsync(int id)
+        {
+            try
+            {
+                await orderRe.DeleteOrderAsync(id);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateOrderAsync(int id,OrderModel orderModel)
+        {
+            try
+            {
+                await orderRe.UpdateOrderAsync(id,orderModel);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }
