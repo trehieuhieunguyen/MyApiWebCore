@@ -43,7 +43,7 @@ namespace MyApiWebCore.Controllers
                 return BadRequest();
             }
         }
-        [HttpPost]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrderAsync(int id)
         {
             try
@@ -56,7 +56,7 @@ namespace MyApiWebCore.Controllers
                 return BadRequest();
             }
         }
-        [HttpPost]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateOrderAsync(int id,OrderModel orderModel)
         {
             try

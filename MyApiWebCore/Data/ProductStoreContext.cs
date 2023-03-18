@@ -12,6 +12,7 @@ namespace MyApiWebCore.Data
         #endregion
         public DbSet<Order>? Order { get; set; }
         public DbSet<OrderDetail>? OrderDetail { get; set; }
-
+        public DbSet<Cart>? Cart { get; set; }
+        public DbSet<CartItem>? CartItem { get; set;}
     }
 }

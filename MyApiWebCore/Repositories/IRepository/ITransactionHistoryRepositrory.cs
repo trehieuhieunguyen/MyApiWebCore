@@ -5,6 +5,6 @@ namespace MyApiWebCore.Repositories.IRepository
 {
     public interface ITransactionHistoryRepositrory
     {
-        public Task<object> TransactionHistory(List<OrderItemModel> orderDetails);
+        public Task<object> TransactionHistory(string userId,List<OrderItemModel> orderDetails);
     }
 }

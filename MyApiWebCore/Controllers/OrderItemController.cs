@@ -45,7 +45,7 @@ namespace MyApiWebCore.Controllers
                 return BadRequest();
             }
         }
-        [HttpPost]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateOrderItem(int id,OrderItemModel orderItemModel)
         {
             try
@@ -58,7 +58,7 @@ namespace MyApiWebCore.Controllers
                 return BadRequest();
             }
         }
-        [HttpPost]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderItem(int id)
         {
             try

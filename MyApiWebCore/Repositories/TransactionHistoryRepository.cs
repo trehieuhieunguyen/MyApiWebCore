@@ -23,11 +23,11 @@ namespace MyApiWebCore.Repositories
             this.context = context;
             this.mapper = mapper;
         }
-        public async Task<object> TransactionHistory(List<OrderItemModel> orderDetails)
+        public async Task<object> TransactionHistory(string userId,List<OrderItemModel> orderDetails)
         {
             //Create ordermodel to add order first in db 
             OrderModel orderModel = new OrderModel();
-            orderModel.UserId = userManager.Users.First().Id;
+            orderModel.UserId = userId;
             orderModel.CreatedAt = DateTime.Now;
             var IdOrder = await orderRepository.AddOrderAsync(orderModel);
             orderModel.Total = 0;
