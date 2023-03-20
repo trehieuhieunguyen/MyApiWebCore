@@ -14,6 +14,7 @@ namespace MyApiWebCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = UserRoles.Admin)]
     public class TransactionProduct : ControllerBase
     {
         private ITransactionHistoryRepositrory historyRepositrory;

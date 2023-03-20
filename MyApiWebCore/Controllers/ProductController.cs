@@ -32,6 +32,18 @@ namespace MyApiWebCore.Controllers
             }
         }
 
+        [HttpGet("{page}/{pageSize}/{filter}")]
+        public async Task<IActionResult> GetProductsFilter(int page,int pageSize, string filter)
+        {
+            try
+            {
+                return Ok(await _productRepository.GetProductFilter(page,pageSize,filter));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {

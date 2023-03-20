@@ -15,6 +15,6 @@ namespace MyApiWebCore.Repositories.IRepository
 
         public Task DeleteProductAsync(int id);
 
-        
+        public Task<IEnumerable<Product>> GetProductFilter(int page, int pageSize, string filter);
     }
 }

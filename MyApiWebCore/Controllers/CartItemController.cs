@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyApiWebCore.Data;
 using MyApiWebCore.Models;
 using MyApiWebCore.Repositories.IRepository;
+using System.Data;
 
 namespace MyApiWebCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = UserRoles.Admin)]
     public class CartItemController : ControllerBase
     {
         private ICartItemRepository cartItemRepository;

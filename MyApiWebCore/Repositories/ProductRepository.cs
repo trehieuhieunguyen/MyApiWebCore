@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MyApiWebCore.Data;
 using MyApiWebCore.Models;
 using MyApiWebCore.Repositories.IRepository;
@@ -44,6 +45,17 @@ namespace MyApiWebCore.Repositories
         {
             var product =await _context.Products!.FindAsync(id);
             return _mapper.Map<ProductModel>(product);
+        }
+
+        public async Task<IEnumerable<Product>> GetProductFilter(int page, int pageSize, string filter)
+        {
+            var query = _context.Products!.AsQueryable();
+            if (!string.IsNullOrEmpty(filter))
+            {
+                query = query.Where(p => p.Description!.Contains(filter));
+            }
+            var products = await query.Skip((page -1 )*pageSize).Take(pageSize).ToListAsync();
+            return products;
         }
 
         public async Task UpdateProductAsync(int id, ProductModel model)
