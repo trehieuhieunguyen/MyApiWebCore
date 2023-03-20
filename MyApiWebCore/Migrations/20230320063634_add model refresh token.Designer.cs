@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyApiWebCore.Data;
 
@@ -11,9 +12,11 @@ using MyApiWebCore.Data;
 namespace MyApiWebCore.Migrations
 {
     [DbContext(typeof(ProductStoreContext))]
-    partial class ProductStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20230320063634_add model refresh token")]
+    partial class addmodelrefreshtoken
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

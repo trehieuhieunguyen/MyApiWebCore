@@ -36,7 +36,7 @@ namespace MyApiWebCore.Controllers
         public async Task<IActionResult> SignIn(SignInModel model)
         {
             var result = await accountRepo.SignInAsync(model);
-            if (string.IsNullOrEmpty(result))
+            if (result == null)
             {
                 return Unauthorized();
             }
@@ -45,6 +45,18 @@ namespace MyApiWebCore.Controllers
                 return Ok(result);
             }
         }
-        
+        [HttpGet("RefreshToken")]
+        public async Task<IActionResult> RefreshToken(string refreshToken)
+        {
+            var result = await accountRepo.RefreshAccessToken(refreshToken);
+            if (string.IsNullOrEmpty(result))
+            {
+                return Unauthorized("Token expired");
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
     }
 }

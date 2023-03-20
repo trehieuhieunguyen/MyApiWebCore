@@ -12,7 +12,7 @@ namespace MyApiWebCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+    [Authorize(Roles = UserRoles.Admin)]
     public class CartController : ControllerBase
     {
         private ICartRepository cartRepository;

@@ -14,5 +14,6 @@ namespace MyApiWebCore.Data
         public DbSet<OrderDetail>? OrderDetail { get; set; }
         public DbSet<Cart>? Cart { get; set; }
         public DbSet<CartItem>? CartItem { get; set;}
+        public DbSet<RefreshToken> RefreshToken { get; set; }
     }
 }
