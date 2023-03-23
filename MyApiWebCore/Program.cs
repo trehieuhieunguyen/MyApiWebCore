@@ -51,6 +51,8 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
 builder.Services.AddScoped<ITransactionHistoryRepositrory, TransactionHistoryRepository>();
+builder.Services.AddScoped<IHistoryOrderOfUserRepository, HistoryOrderOfUserRepository>();
+builder.Services.AddScoped<IChartAppRepository, ChartAppRepository>();
 
 // Add Identity User
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()

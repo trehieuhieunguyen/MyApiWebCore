@@ -12,16 +12,16 @@ namespace MyApiWebCore.Repositories
     public class CartRepository : ICartRepository
     {
         private ProductStoreContext context;
-        private UserManager<ApplicationUser> userManager;
+    
         private IMapper mapper;
 
         public CartRepository(
             ProductStoreContext context,
-            UserManager<ApplicationUser> userManager,
+           
             IMapper mapper) 
         {
             this.context = context;
-            this.userManager = userManager;
+
             this.mapper = mapper;
         }
 

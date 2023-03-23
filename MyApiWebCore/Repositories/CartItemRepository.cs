@@ -10,16 +10,16 @@ namespace MyApiWebCore.Repositories
     public class CartItemRepository : ICartItemRepository
     {
         private ProductStoreContext context;
-        private UserManager<ApplicationUser> userManager;
+        
         private IMapper mapper;
 
         public CartItemRepository(
             ProductStoreContext context,
-            UserManager<ApplicationUser> userManager,
+            
             IMapper mapper)
         {
             this.context = context;
-            this.userManager = userManager;
+          
             this.mapper = mapper;
         }
         public async Task<int> AddCartItemsAsyn(CartItemModel orderDetailModel)
