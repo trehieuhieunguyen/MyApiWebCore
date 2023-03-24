@@ -1,5 +1,4 @@
-﻿using MyApiWebCore.Models.Dto;
-
+﻿
 namespace MyApiWebCore.Repositories.IRepository
 {
     public interface IChartAppRepository
